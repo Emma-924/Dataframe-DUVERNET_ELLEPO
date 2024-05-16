@@ -5,7 +5,7 @@
 int main() {
     
     CDATAFRAME *data ;
-    int choice_menu,second_choice_menu,nb=0,nb_col,val,nb_row;
+    int choice_menu,second_choice_menu,nb=0,nb_col,val,nb_row,inf,sup;
     char nom_col[100],new_col_name[100];
 
     printf("\nBonjour,"
@@ -33,7 +33,7 @@ int main() {
                     case 2:
                         printf("Saisir le nombre de colonnes souahité : \n");
                         scanf("%d",&nb_col);
-                        printf("Saisir le nombre de rownes souahité : \n");
+                        printf("Saisir le nombre de lignes souahité : \n");
                         scanf("%d",&nb_row);
                         data->nb_row += nb_row;
                         for(int i = 0; i<nb_col;i++){
@@ -59,7 +59,7 @@ int main() {
             case 2:
                 printf("\t\tAffichage\n\n");
                 printf("1. \tAfficher tout le CDataframe\n"
-                       "2. \tAfficher une partie des rownes du CDataframe selon une limite fournie par l’utilisateur\n"
+                       "2. \tAfficher une partie des lignes du CDataframe selon une limite fournie par l’utilisateur\n"
                        "3. \tAfficher une partie des colonnes du CDataframe selon une limite fournie par l’utilisateur\n");
                 scanf("%d", &second_choice_menu);
                 switch (second_choice_menu) {
@@ -69,19 +69,35 @@ int main() {
                         else
                             print_database(data);
 
+                        break;
 
+                    case 2 :
+                        printf("Sasir la borne inferieure : ");
+                        scanf("%d",&inf);
+                        printf("Sasir la borne superieure : ");
+                        scanf("%d",&sup);
+                        some_row(data,inf,sup);
+                        break;
+
+                    case 3:
+                        printf("Sasir la borne inferieure : ");
+                        scanf("%d",&inf);
+                        printf("Sasir la borne superieure : ");
+                        scanf("%d",&sup);
+                        some_column(data,inf,sup);
+                        break;
                 }
                 break;
 
             case 3:
                 printf("\tOpérations usuelles\n\n");
-                printf("1. \tAjouter une rowne de valeurs au CDataframe\n"
-                       "2. \tSupprimer une rowne de valeurs du CDataframe\n"
+                printf("1. \tAjouter une ligne de valeurs au CDataframe\n"
+                       "2. \tSupprimer une ligne de valeurs du CDataframe\n"
                        "3. \tAjouter une colonne au CDataframe\n"
                        "4. \tSupprimer une colonne du CDataframe\n"
                        "5. \tRenommer le titre d’une colonne du CDataframe\n"
                        "6. \tVérifier l’existence d’une valeur (recherche) dans le CDataframe\n"
-                       "7. \tAccéder/remplacer la valeur se trouvant dans une cellule du CDataframe en utilisant son numéro de rowne et de colonne\n"
+                       "7. \tAccéder/remplacer la valeur se trouvant dans une cellule du CDataframe en utilisant son numéro de ligne et de colonne\n"
                        "8. \tAfficher les noms des colonnes\n");
                 scanf("%d", &second_choice_menu);
                 switch (second_choice_menu) {
@@ -97,8 +113,8 @@ int main() {
 
                     case 2 :
                         if (data->nb_row == 0) {
-                            printf("Aucune rowne trouvée");
-                            printf("Saisir la rowne à supprimer : \n");
+                            printf("Aucune ligne trouvée");
+                            printf("Saisir la ligne à supprimer : \n");
                             scanf("%d", &val);
                         }
                         else {
@@ -141,7 +157,7 @@ int main() {
                     case 7:
                         printf("Veuillez saisir le numéro de la colonne de la valeur: \n");
                         scanf("%d",&nb_col);
-                        printf("Veuillez saisir le numéro de la rowne de la valeur : ");
+                        printf("Veuillez saisir le numéro de la ligne de la valeur : ");
                         scanf("%d",&nb_row);
                         printf("Veuillez saisir la nouvelle valeur : \n");
                         scanf("%d",&val);
@@ -156,7 +172,7 @@ int main() {
 
             case 4:
                 printf("\tAnalyse et statistiques\n\n");
-                printf("1. \tAfficher le nombre de rownes\n"
+                printf("1. \tAfficher le nombre de lignes\n"
                        "2. \tAfficher le nombre de colonnes\n"
                        "3. \tNombre de cellules contenant une valeur égale à x (x donné en paramètre)\n"
                        "4. \tNombre de cellules contenant une valeur supérieure à x (x donné en paramètre)\n"
@@ -164,7 +180,7 @@ int main() {
                 scanf("%d", &second_choice_menu);
                 switch (second_choice_menu) {
                     case 1 :
-                        printf("Il y a %d rowne(s)",data->nb_row);
+                        printf("Il y a %d ligne(s)",data->nb_row);
                         break;
 
                     case 2 :

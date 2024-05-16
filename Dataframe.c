@@ -150,7 +150,6 @@ void print_database(CDATAFRAME *data) {
 
         for (int j = 0; j < t[i]->taille_logique; j++) {
             printf("[%d]\t\t%d\n", j,t[i]->tab[j]);
-
         }
     }
 }
@@ -229,5 +228,22 @@ void add_row_to_database(CDATAFRAME* data){
         insert_value(data->col_tab[i], val);
         data->nb_row++;
 
+    }
+}
+
+void some_column(CDATAFRAME* data, int inf, int sup){
+    for (int i = inf ; i < sup; i++){
+        printf("\t\t%s\n",data->col_tab[i]->titre);
+        print_col(data->col_tab[i]);
+    }
+}
+
+
+void some_row(CDATAFRAME* data, int inf, int sup){
+    for (int i = 0; i < data->nb_col; i++) {
+        printf("\t\t%s\n",data->col_tab[i]->titre);
+        for (int j = inf; j < sup ; j++) {
+            printf("[%d]\t\t %d\n",j,data->col_tab[i]->tab[j]);
+        }
     }
 }

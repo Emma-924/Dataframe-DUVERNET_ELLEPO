@@ -5,7 +5,7 @@
 #include <string.h> 
 #include "Dataframe.h" 
 
-
+ 
 COLUMN *create_column(char* title){
     // initialise les données de la colonne
 

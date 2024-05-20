@@ -5,7 +5,6 @@
 #ifndef PROJET_S2_DATAFRAME_DATAFRAME_H
 #define PROJET_S2_DATAFRAME_DATAFRAME_H
 
-#define REALLOC_SIZE 256
 typedef struct {
     char titre[100];
     int taille_physique;

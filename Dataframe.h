@@ -44,5 +44,15 @@ int nb_occ_lower_in_database(CDATAFRAME* data, int val);
 void delete_row(COLUMN* col,int n);
 void database_delete_row(CDATAFRAME* data, int n);
 void add_row_to_database(CDATAFRAME* data);
+void some_row(CDATAFRAME* data, int inf, int sup);
+void some_column(CDATAFRAME* data, int inf, int sup);
+
+void analyse_statistiques(CDATAFRAME** data);
+void alimentation(CDATAFRAME** data);
+void affichage(CDATAFRAME** data);
+void operations_usuelles(CDATAFRAME** data);
+
+
 
 #endif //PROJET_S2_DATAFRAME_DATAFRAME_H
+
